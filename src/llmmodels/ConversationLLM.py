@@ -16,7 +16,7 @@ from langchain.chains import LLMChain
 from langchain.llms import OpenAI
 from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferMemory
-
+    
 MODEL_CONFIGS = {
     "gpt-3.5-turbo": "gpt-3.5-turbo",
     "gpt-4": "gpt-4"
@@ -38,16 +38,16 @@ prompt = PromptTemplate(
 )
 
 
-def getLLMResponse(query, model):
+# def getLLMResponse(query, model):
     
-# api_key = userdata.get('OPENAI_KEY')           # <-- change this as per your secret's name
-    os.environ['OPENAI_API_KEY'] = api_key
-    openai.api_key = os.getenv('OPENAI_API_KEY')
-    print(openai.api_key)
-    llm = ChatOpenAI(model_name=model, temperature=0)
-    output = llm.invoke(query)
-    print("output:"+output)
-    return query
+# # api_key = userdata.get('OPENAI_KEY')           # <-- change this as per your secret's name
+#     os.environ['OPENAI_API_KEY'] = api_key
+#     openai.api_key = os.getenv('OPENAI_API_KEY')
+#     print(openai.api_key)
+#     llm = ChatOpenAI(model_name=model, temperature=0)
+#     output = llm.invoke(query)
+#     print("output:"+output)
+#     return query
 
 class ConversationManager:
     def __init__(self):
