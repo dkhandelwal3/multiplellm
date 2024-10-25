@@ -23,8 +23,8 @@ MODEL_CONFIGS = {
 }
 
 API_KEY_CONFIG ={
-    "gpt-3.5-turbo": "sk-proj-zdlKh4Td5V16ozfxOfdOT3BlbkFJHdceKADQdPdWZZCpv4uB",
-    "gpt-4": "sk-proj-zdlKh4Td5V16ozfxOfdOT3BlbkFJHdceKADQdPdWZZCpv4uB"
+    "gpt-3.5-turbo": "",
+    "gpt-4": ""
 }
 
 template = """You are a chatbot having a conversation with a human.
