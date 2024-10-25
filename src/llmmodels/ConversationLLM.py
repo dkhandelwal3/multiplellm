@@ -22,10 +22,7 @@ MODEL_CONFIGS = {
     "gpt-4": "gpt-4"
 }
 
-# API_KEY_CONFIG ={
-#     "gpt-3.5-turbo": "",
-#     "gpt-4": ""
-# }
+
 
 template = """You are a chatbot having a conversation with a human.
 
@@ -57,7 +54,8 @@ class ConversationManager:
         """Switch the current model."""
         if model_name in MODEL_CONFIGS:
             self.model_name = model_name
-            self.llm = OpenAI(model_name=model_name, openai_api_key=API_KEY_CONFIG[model_name])
+            #self.llm = OpenAI(model_name=model_name, openai_api_key=API_KEY_CONFIG[model_name])
+            self.llm = OpenAI(model_name=model_name)
             self.conversation = LLMChain(llm=self.llm, memory=self.memory, verbose=True,prompt=prompt)
             print(f"Switched to model: {model_name}")
             return "success"
