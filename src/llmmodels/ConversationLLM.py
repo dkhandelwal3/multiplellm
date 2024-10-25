@@ -22,7 +22,10 @@ MODEL_CONFIGS = {
     "gpt-4": "gpt-4"
 }
 
-
+API_KEY_CONFIG ={
+    "gpt-3.5-turbo": "",
+    "gpt-4": ""
+}
 
 template = """You are a chatbot having a conversation with a human.
 
