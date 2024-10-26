@@ -2,19 +2,16 @@ import os
 import openai
 
 from langchain_core.prompts import PromptTemplate
-from langchain_core.output_parsers import StrOutputParser
-from langchain.schema.runnable import RunnablePassthrough
+
 from langchain_openai import ChatOpenAI
 from langchain.chains import LLMChain
-from langchain.llms import OpenAI
-from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferMemory
 
 from llmmodels.config import API_KEY_CONFIG
 from llmmodels.config import template
 from llmmodels.config import MODEL_CONFIGS
 from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
-
+from langchain.memory import ConversationBufferWindowMemory
 
 prompt = PromptTemplate(
     input_variables=["chat_history", "human_input"], template=template
@@ -22,7 +19,7 @@ prompt = PromptTemplate(
 
 class ConversationManager:
     def __init__(self):
-        self.memory = ConversationBufferMemory(memory_key="chat_history",input_key="human_input")# Persistent memory for conversation history
+        self.memory = ConversationBufferWindowMemory(memory_key="chat_history",input_key="human_input",k="5",return_messages=True)# Persistent memory for conversation history
 
     def switch_model(self, model_name: str):
         """Switch the current model."""
